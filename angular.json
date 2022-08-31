@@ -1,0 +1,302 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "AngularMultipleModule": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app"
+    },
+    "AngularMultipleModuleFirst": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/AngularMultipleModuleFirst",
+            "index": {
+              "input": "src/index.first.html",
+              "output": "index.html"
+            },
+            "main": "src/main.first.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.first.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/first/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.first.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.first.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.first.dev.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "AngularMultipleModuleFirst:build:development"
+            },
+            "production": {
+              "browserTarget": "AngularMultipleModuleFirst:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "AngularMultipleModuleFirst:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.first.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/first/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.first.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "development": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.first.dev.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    },
+    "AngularMultipleModuleSecond": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/AngularMultipleModuleSecond",
+            "index": {
+              "input": "src/index.second.html",
+              "output": "index.html"
+            },
+            "main": "src/main.second.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.second.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/second/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.second.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.second.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.second.dev.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "AngularMultipleModuleSecond:build:development"
+            },
+            "production": {
+              "browserTarget": "AngularMultipleModuleSecond:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "AngularMultipleModuleSecond:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.second.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/second/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
+            ],
+            "styles": [
+              "src/styles.second.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "development": {
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.second.dev.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "defaultProject": ""
+}
